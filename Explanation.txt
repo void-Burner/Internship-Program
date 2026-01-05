@@ -1,0 +1,126 @@
+PROJECT 1 (INTERNSHIP PROGRAM)
+
+UNDERSTANDING MVC (VERY SIMPLE)
+
+MVC stands for:
+
+Model – View – Controller
+
+MVC is a way to organize your project so that:
+
+Code is easy to understand
+
+Each file has one clear job
+
+The project is easy to grow in the future
+
+MODEL (M)
+
+What is Model?
+
+Model is related to the database
+
+It decides how data is stored
+
+What Model does:
+
+Creates the structure of data (schema)
+
+Talks to the database
+
+Fetches, saves, updates, and deletes data
+
+Example database actions:
+User.find()
+User.create()
+User.updateOne()
+
+Simple meaning:
+"Model knows everything about the database."
+
+CONTROLLER (C)
+
+What is Controller?
+
+Controller is the brain of the app
+
+What Controller does:
+
+Gets request from the user
+
+Asks the Model for data
+
+Sends response back to the user
+
+Simple example:
+export const login = async (req, res) => {
+const user = await User.findOne({ email });
+if (!user) return res.status(404);
+res.json(user);
+};
+
+Simple meaning:
+"Controller decides what to do when a request comes."
+
+VIEW (V)
+
+What is View?
+
+View is what the user sees
+
+View in backend:
+
+JSON data
+
+API responses
+
+View in frontend:
+
+Web pages
+
+React / HTML / CSS
+
+Simple meaning:
+"View shows the result to the user."
+
+BASIC PROJECT FILE STRUCTURE
+
+src/
+├── config/
+│ └── db.js => connects MongoDB with the project
+├── models/
+│ └── user.model.js => user data structure (schema)
+├── controllers/
+│ └── user.controller.js => main logic for user actions
+├── routes/
+│ └── user.routes.js => defines URLs like /login, /register
+├── middleware/
+│ └── auth.middleware.js => checks user login and token
+├── app.js => sets up Express app
+└── server.js => starts the server
+
+HOW A REQUEST WORKS (STEP BY STEP)
+
+User opens website or app
+
+User sends request (example: login)
+
+Route matches the URL
+
+Middleware checks authentication
+
+Controller runs logic
+
+Model talks to database
+
+Controller gets data back
+
+Response is sent to user (View)
+
+REAL LIFE EXAMPLE (FOOD ORDER)
+
+User => Customer
+Route => Waiter
+Controller => Kitchen Manager
+Model => Kitchen / Store Room
+View => Food served on the table
