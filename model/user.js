@@ -19,6 +19,10 @@ const userSchema = new mongoose.Schema({
         enum:["superadmin","admin"],
         default:"admin"
     },
+    verified:{
+        type: Boolean,
+        required: true,
+    }
 },{timestamps:true});
 
 const User = mongoose.model("User",userSchema);
